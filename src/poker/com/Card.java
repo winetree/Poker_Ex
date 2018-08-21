@@ -15,7 +15,7 @@ public class Card {
 	private int cardNumPoint;
 	
 	/**
-	 * Card 클래스의 생성자.
+	 * Card 클래스의 생성자. 클래스를 호출하면서 parameter 값에 의해 카드의 정보가 모두 입력돼요
 	 * 
 	 * @param cardShape
 	 * @param cardShapePoint
@@ -30,7 +30,7 @@ public class Card {
 	}
 	
 	/**
-	 * 디버깅을 위한 카드의 4가지 정보를 String으로 반환해주는 Method
+	 * 디버깅을 위한 카드의 4가지 정보를 모두 String으로 반환해주는 Method
 	 * @return String 카드정보
 	 */
 	public String getCardInfo() {
