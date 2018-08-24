@@ -7,11 +7,11 @@ import java.util.List;
 public class Deck {
 
 	List<Card> Deck = new ArrayList<Card>();
-	
+
 	private final String[] cardShape = { "♣", "♥", "♦", "♠" };
 	private final int[] cardShapePoint = { 1, 2, 3, 4 };
 	private final String[] cardNum = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
-	private final int[] cardNumPoint = { 1, 2 , 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+	private final int[] cardNumPoint = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
 
 	public void deckInit() {
 		for (int i = 0; i < cardShape.length; i++) {
@@ -21,17 +21,17 @@ public class Deck {
 			}
 		}
 	}
-	
+
 	public void deckShuffle() {
 		Collections.shuffle(Deck);
-	}	
-	
+	}
+
 	public Card getCard() {
 		Card card;
 		card = Deck.get(0);
 		Deck.remove(0);
-		
+
 		return card;
 	}
-	
+
 }
