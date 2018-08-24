@@ -18,6 +18,11 @@ public class Rule {
 		
 	}
 
+		/**
+		 * api 문서 입니다.
+		 * @param d1
+		 * @return
+		 */
 	public int[] DeckNumUnpack(List<Card> d1) {
 		int[] temp = new int[d1.size()];
 		for (int i = 0; i < d1.size(); i++) {
@@ -44,7 +49,7 @@ public class Rule {
 				startIdx = 0;
 			}
 		}
-		
+
 		return startIdx - 1;
 		
 	}
