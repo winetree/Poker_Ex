@@ -50,7 +50,7 @@ public class Deck {
 		Card temp = d1.get(n + 1);
 		d1.remove(n + 1);
 		return temp;
-	}
+	  }
 
 	public void deckPrint(List<Card> d1) {
 		for (int i = 0; i < d1.size(); i++) {

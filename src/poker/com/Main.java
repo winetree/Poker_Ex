@@ -17,11 +17,10 @@ public class Main {
 		myDeck.add(deck.getCard(DECK));
 		myDeck.add(deck.getCard(DECK));
 		myDeck.add(deck.getCard(DECK));
-		
+
 		Rule rule = new Rule();
 		
 		rule.Calculation(myDeck);
-
 
 		
 	}
