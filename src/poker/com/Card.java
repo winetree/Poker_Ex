@@ -44,14 +44,21 @@ public class Card {
 	public int getCardShapePoint() {
 		return this.cardShapePoint;
 	}
+	public String getCardShape() {
+		return this.cardShape;
+	}
 	
 	/**
 	 * 외부 클래스(Rule)에서 카드 숫자의 int값을 얻기위한 Method
-	 * @return
+	 * @return int 카드 넘버의 정수값 
 	 */
 	public int getCardNumPoint() {
 		return this.cardNumPoint;
 	}
+	public String getCardNum() {
+		return this.cardNum;
+	}
+	
 	
 	/**
 	 * 유저에게 카드 정보를 출력해주기 위한 Method  List.get(i) 로 호출시 이 Method 를 통해 String으로 반환

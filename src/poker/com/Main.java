@@ -8,20 +8,22 @@ public class Main {
 		
 		Deck deck = new Deck();
 		
-		deck.deckInit();
-		deck.deckShuffle();
+		List<Card> DECK = deck.deckInit();
 		
 		List<Card> myDeck = new ArrayList<Card>();
 		
+		myDeck.add(deck.getCard(DECK));
+		myDeck.add(deck.getCard(DECK));
+		myDeck.add(deck.getCard(DECK));
+		myDeck.add(deck.getCard(DECK));
+		myDeck.add(deck.getCard(DECK));
 		
-		myDeck.add(deck.getCard());
-		myDeck.add(deck.getCard());
-		myDeck.add(deck.getCard());
-		myDeck.add(deck.getCard());
-		myDeck.add(deck.getCard());
+		Rule rule = new Rule();
 		
-		deck.deckPrint(myDeck);
+		rule.Calculation(myDeck);
 		
+	
 		
 	}
 }
+
