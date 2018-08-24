@@ -7,7 +7,7 @@ public class Card {
 	 */
 	private String cardShape;
 	private String cardNum;
-	
+
 	/**
 	 * 내부 연산에 사용되는 카드위 모양, 숫자의 절대 int 값
 	 */
