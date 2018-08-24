@@ -46,5 +46,6 @@ public class Rule {
 		}
 		
 		return startIdx - 1;
+		
 	}
 }
