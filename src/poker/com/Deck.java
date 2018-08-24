@@ -27,11 +27,9 @@ public class Deck {
 	}
 
 	public Card getCard() {
-		Card card;
-		card = Deck.get(0);
+		Card temp = Deck.get(0);
 		Deck.remove(0);
-
-		return card;
+		return temp;
 	}
 
 }
