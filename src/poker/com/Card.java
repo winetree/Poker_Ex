@@ -64,9 +64,12 @@ public class Card {
 	 * 유저에게 카드 정보를 출력해주기 위한 Method  List.get(i) 로 호출시 이 Method 를 통해 String으로 반환
 	 * @return String 카드모양 + 카드넘버
 	 */
+//	@Override
+//	public String toString() {
+//		return "Shape : " + cardShape + " / Number : " + cardNum;
+//	}
 	@Override
 	public String toString() {
-		return "Shape : " + cardShape + " / Number : " + cardNum;
+		return cardShape + cardNum;
 	}
-
 }

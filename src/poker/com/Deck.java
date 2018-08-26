@@ -19,7 +19,7 @@ public class Deck {
 	public List<Card> deckInit() {
 		List<Card> Deck = new ArrayList<Card>();
 		deckMake(Deck);
-		deckShuffle(Deck);
+//		deckShuffle(Deck);
 		return Deck;
 	}
 

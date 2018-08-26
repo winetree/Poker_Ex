@@ -10,13 +10,17 @@ public class Main {
 
 		List<Card> DECK = deck.deckInit();
 
+		System.out.println(DECK);
+
 		List<Card> myDeck = new ArrayList<Card>();
 
-		myDeck.add(deck.getCard(DECK));
-		myDeck.add(deck.getCard(DECK));
-		myDeck.add(deck.getCard(DECK));
-		myDeck.add(deck.getCard(DECK));
-		myDeck.add(deck.getCard(DECK));
+		myDeck.add(deck.getCard(DECK, 7));
+		myDeck.add(deck.getCard(DECK, 7));
+		myDeck.add(deck.getCard(DECK, 7));
+		myDeck.add(deck.getCard(DECK, 7));
+		myDeck.add(deck.getCard(DECK, 7));
+
+		deck.deckPrint(myDeck);
 
 		Rule rule = new Rule();
 

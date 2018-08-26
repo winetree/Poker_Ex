@@ -15,14 +15,14 @@ public class Rule {
 			System.out.print("[ " + numArr[i] + " / ");
 			System.out.print(shpArr[i] + " ]");
 		}
-		
+
+		if(royalStraightFlush(shpArr,numArr)) {
+			System.out.print("로얄 스트레이스 플러쉬");
+		}
+
+
 	}
 
-		/**
-		 * api 문서 입니다.
-		 * @param d1
-		 * @return
-		 */
 	public int[] DeckNumUnpack(List<Card> d1) {
 		int[] temp = new int[d1.size()];
 		for (int i = 0; i < d1.size(); i++) {
@@ -39,18 +39,31 @@ public class Rule {
 		return temp;
 	}
 
-	public int sameShpCount(int[] shpArr) {
-		int startIdx = 1;
-		
-		for(int i = 1; i < shpArr.length; i ++) {
-			if(shpArr[startIdx - 1] == shpArr[i]) {
-				startIdx ++;
-			} else if(startIdx >= 3 && startIdx < i) {
-				startIdx = 0;
+	/**
+	 * 다섯장의 카드가 같은 모양인지를 분별
+	 *
+	 * @param shpArr
+	 * @return
+	 */
+	public boolean sameShpChk(int[] shpArr) {
+		for (int i = 1; i < shpArr.length; i++) {
+			if (shpArr[i - 1] != shpArr[i]) {
+				return false;
 			}
 		}
+		return true;
+	}
 
-		return startIdx - 1;
-		
+	public boolean royalStraightFlush(int[] shpArr, int[] numArr) {
+		if (sameShpChk(shpArr) &&
+						numArr[0] == 9 &&
+						numArr[1] == 10 &&
+						numArr[2] == 11 &&
+						numArr[3] == 12 &&
+						numArr[4] == 13
+		) {
+			return true;
+		}
+		return false;
 	}
 }
