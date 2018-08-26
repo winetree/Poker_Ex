@@ -24,6 +24,7 @@ public class Main {
 
 		Rule rule = new Rule();
 
+		//dd
 		rule.Calculation(myDeck);
 
 	}
