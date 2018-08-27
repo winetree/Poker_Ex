@@ -40,11 +40,13 @@ public class Main_J {
 		List<Card> myDeck = new ArrayList<Card>();
 		List<Card> comDeck = new ArrayList<Card>();
 		
+		
 		myDeck.add(deck.getCard());
 		myDeck.add(deck.getCard());
 		myDeck.add(deck.getCard());
 		myDeck.add(deck.getCard());
 		myDeck.add(deck.getCard());
+
 		
 		comDeck.add(deck.getCard());
 		comDeck.add(deck.getCard());
@@ -52,14 +54,17 @@ public class Main_J {
 		comDeck.add(deck.getCard());
 		comDeck.add(deck.getCard());
 		
-	/*	System.out.println(deck.Deck);
-		System.out.println(myDeck);
-		System.out.println(comDeck);*/
+//		System.out.println(deck.Deck);
+//		System.out.println(myDeck);
+//		System.out.println(comDeck);
 		
-		int a = rule.pointDeck(myDeck);
-		int b = rule.pointDeck(comDeck);
+//		int a = rule.pointDeck(myDeck);
+//		int b = rule.pointDeck(comDecsk);
 		
-		rule.pointCard(myDeck.get(0), comDeck.get(0));
+//		rule.compareCard(myDeck.get(0), comDeck.get(0));
+//		rule.pointDeck(deck.Deck);
 		
+		rule.pointDeck(myDeck);
+//		rule.sameShpCheck(deck.Deck.get(0).getCardNumPoint());
 	}
 }

@@ -36,7 +36,6 @@ public class Deck {
 		Collections.shuffle(Deck);
 	}
 
-	// 덱 카드 한장 뽑기 : List<Card> Deck 의 인덱스 0번째 카드를 return Deck 의 인덱스 0번 삭제
 	/**
 	 * 덱카드 한장 뽑기 : List<Card> Deck의 index 0번째 카드를 card에 담은 후 
 	 * Deck의 index 0번째 객체 삭제
@@ -46,17 +45,19 @@ public class Deck {
 		Card card;
 		card = Deck.get(0);
 		Deck.remove(0);
-
 		return card;
 	}
-
-	// 카드 출력 : List<Card> Deck 의 카드들을 순서대로 출력
+	
+	// 
+	/**
+	 * 카드 출력 : List<Card> Deck 의 카드들을 순서대로 출력
+	 * @param List<Card> d1
+	 */
 	public void deckPrint(List<Card> d1) {
 		for (int i = 0; i < d1.size(); i++) {
-			// System.out.println(d1.get(i));
+			 System.out.println(d1.get(i));
 		}
 		System.out.print(Deck);
 	}
-	// commit
 
 }
