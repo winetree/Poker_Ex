@@ -8,7 +8,7 @@ public class Rule {
 		System.out.println(n);
 		return n;
 	}
-	
+	//asfdfasdasdffsad
 //	덱 비교 : Deck d1의 족보별 점수 return
 	public int pointDeck(Deck d1) {
 		int a=0;
