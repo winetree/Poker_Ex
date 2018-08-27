@@ -34,8 +34,8 @@ public class Main_J {
 //		deck.deckPrint(deck.Deck);
 //		Rule rule = new Rule();
 //		rule.pointCard(deck.Deck);
-		System.out.println(deck.Deck);
-		Rule rule = new Rule();
+//		System.out.println(deck.Deck);
+		Rule_J rule = new Rule_J();
 		
 		List<Card> myDeck = new ArrayList<Card>();
 		List<Card> comDeck = new ArrayList<Card>();
@@ -52,9 +52,9 @@ public class Main_J {
 		comDeck.add(deck.getCard());
 		comDeck.add(deck.getCard());
 		
-		System.out.println(deck.Deck);
+	/*	System.out.println(deck.Deck);
 		System.out.println(myDeck);
-		System.out.println(comDeck);
+		System.out.println(comDeck);*/
 		
 		int a = rule.pointDeck(myDeck);
 		int b = rule.pointDeck(comDeck);
