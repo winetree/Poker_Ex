@@ -7,7 +7,9 @@ public class Main_Dohyun {
 	public static void main(String[] args) {
 
 	 System.out.println("\t\t\tAVENGERS POKER GAME"); Help h = new Help();
-	 h.hel();
+	 h.hel(); 
+	 Player_Dohyun PD = new Player_Dohyun();
+	 
 	 
 
 	// Player p = new Player();

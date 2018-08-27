@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_COLOR_BURNPeer;
 
 public class Help {
-
+Player_Dohyun PD = new Player_Dohyun();
 	/**
 	 * 도움말 입력입니다.
 	 */
@@ -32,6 +32,7 @@ public class Help {
 					help();
 					break;
 				} else if (result == 1) {
+					PD.first();
 					break;
 				} else {
 					System.out.println("\t\t\t   잘못된 입력값입니다");
@@ -46,15 +47,12 @@ public class Help {
 	public void help() {
 		System.out.println("\t\t\t\t도움말 입니다");
 		System.out.println("\t\t\t포커게임에 대한 소개는 1번");
-		System.out.println("\t\t      포커게임에 대한 족보 소개는 2번");
-		System.out.println("\t\t포커게임에 대한 진행방식에 대한 소개는 3번");
+		System.out.println("\t\t     포커게임에 대한 족보 소개는 2번");
 		int result = input();
 		if (result == 1) {
 			poker();
 		} else if (result == 2) {
 			rule();
-		} else if (result == 3) {
-			play();
 		} else {
 			System.out.println("\t\t\t잘못된 입력값입니다.");
 			input();
@@ -66,25 +64,22 @@ public class Help {
 		System.out.println("\t    AVENGERS POKER의 경우는 FIVE STUD POKER방식이며");
 		System.out.println("\t\t딜러에게 유저가 총 5장의 카드를 받아 조합하여\n\t\t 높은 카드조합의 유저가 승리하는 방식입니다\n");
 		System.out.println("\t\t\t  도움말이 더 필요하십니까?");
-		System.out.println("\t\t\t       1.예 2.아니오");
+		System.out.println("\t\t\t         1.예 2.아니오");
 		int n = input();
 		if (n == 1) {
 			help();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
 	}
 
-	private void play() {
-		System.out.println("");
-	}
 
 	private void rule() {
 		System.out.println("\t\t\t포커게임 족보에 대한 소개입니다");
 		System.out.println("\t\t\t   Avenger Poker의 족보에는\n\t\t\t  총 13가지의 종류가 있습니다");
-		System.out.println("\t1.로얄스트레이트 플러시\n\t2.백스트레이트 플러시\n\t3.스트레이트 플러시\n\t4.포카드\n\t5.풀하우스\n\t6.플러시\n\t7.마운틴\n\t8.백스트레이트\n\t9.스트레이트\n\t10.트리플\n\t11.투페어\n\t12.원페어\n\t13.탑");
+		System.out.println("\t\t\t     1.로얄스트레이트 플러시\n\t\t\t      2.백스트레이트 플러시\n\t\t\t       3.스트레이트 플러시\n\t\t\t\t     4.포카드\n\t\t\t\t    5.풀하우스\n\t\t\t\t     6.플러시\n\t\t\t\t     7.마운틴\n\t\t\t\t  8.백스트레이트\n\t\t\t\t   9.스트레이트\n\t\t\t\t     10.트리플\n\t\t\t\t     11.투페어\n\t\t\t\t     12.원페어\n\t\t\t\t\t13.탑");
 		System.out.println("\t\t\t알고싶은 족보의 번호를 눌러주세요");
 		int n = input();
 		if (n == 1) {
@@ -127,7 +122,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.getClass();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -141,7 +136,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -155,7 +150,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -169,7 +164,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -183,7 +178,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -197,7 +192,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -211,7 +206,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -225,7 +220,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -239,7 +234,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -253,7 +248,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -267,7 +262,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -281,7 +276,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -295,7 +290,7 @@ public class Help {
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			play();
+			PD.first();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
