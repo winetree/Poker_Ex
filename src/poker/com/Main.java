@@ -9,7 +9,7 @@ public class Main {
 		deck.Deck.size();
 		deck.getCard();
 		deck.deckShuffle();
-		
+//asdfasdasd
 		deck.deckInit();
 //		deck.deckShuffle();
 		
