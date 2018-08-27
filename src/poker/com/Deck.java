@@ -29,12 +29,19 @@ public class Deck {
 		}
 	}
 
-	// 덱 셔플 : List<Card> Deck 배열의 배치를 랜덤화
+	/**
+	 * 덱 셔플 : List<Card> Deck 배열의 배치를 랜덤화
+	 */
 	public void deckShuffle() {
 		Collections.shuffle(Deck);
 	}
 
 	// 덱 카드 한장 뽑기 : List<Card> Deck 의 인덱스 0번째 카드를 return Deck 의 인덱스 0번 삭제
+	/**
+	 * 덱카드 한장 뽑기 : List<Card> Deck의 index 0번째 카드를 card에 담은 후 
+	 * Deck의 index 0번째 객체 삭제
+	 * @return Card
+	 */
 	public Card getCard() {
 		Card card;
 		card = Deck.get(0);
