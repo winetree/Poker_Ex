@@ -9,7 +9,7 @@
 2. 프로젝트 열람 시 반드시 Fetch Origin 먼저 할 것(다른사람이 수정한 내역이 있으면 받아오는 것임)
 3. 깃허브는 프로젝트의 통합 뿐만 아니라 여러가지 프로젝트를 위한 도구가 있어요.
   - https://backlog.com/git-tutorial/kr/ 지하철에서 틈틈히 읽어보기
-  - Git의 원리는 대기업에서도 쓰이는 만큼 나중에 도움이 많이 되어요. 공부합니다.
+  - Git의 원리는 대기업에서도 쓰이는 만큼 나중에 도움이 많이 되어요. 공부합시다.
 4. 충돌이 발생할 경우 카톡으로 도움 요청
 5. 제작 시 FBS 를 최대한 따라와 주세요. 
   - https://docs.google.com/spreadsheets/d/1rU3T9UlzdMi4ze0lsJDG8QxDtaQA8Y2ppni3nzzMhzY/edit?usp=sharing
