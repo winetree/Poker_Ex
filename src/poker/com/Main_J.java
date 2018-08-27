@@ -2,7 +2,7 @@ package poker.com;
 
 import java.util.*;
 
-public class Main {
+public class Main_J {
 
 	public static void main(String[] args) {
 		
