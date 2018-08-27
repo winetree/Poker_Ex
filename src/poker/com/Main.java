@@ -34,8 +34,8 @@ public class Main {
 //		deck.deckPrint(deck.Deck);
 //		Rule rule = new Rule();
 //		rule.pointCard(deck.Deck);
-//		System.out.println(Deck);
+		System.out.println(deck.Deck);
 		Rule rule = new Rule();
-		rule.pointCard(deck.Deck.get(0));
+		rule.pointCard(deck.Deck.get(1));
 	}
 }
