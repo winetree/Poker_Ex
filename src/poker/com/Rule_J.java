@@ -2,7 +2,7 @@ package poker.com;
 
 import java.util.*;
 
-public class Rule {
+public class Rule_J {
 	//fdsfds
 	// 카드비교 : Card c1의 모양과 숫자를 보고 카드의 점수를 return
 	public boolean pointCard(Card c1, Card c2) {
