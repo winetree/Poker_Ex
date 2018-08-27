@@ -28,7 +28,7 @@ public class Rule {
 
 	public void Calculation(List<Card> d1) {
 		int[] numArr = DeckNumUnpack(d1);
-		int[] shpArr = DeckShpUnpack2(d1);
+		int[] shpArr = DeckShpUnpack(d1);
 		Arrays.sort(numArr);
 		Arrays.sort(shpArr);
 
@@ -52,7 +52,7 @@ public class Rule {
 		return temp;
 	}
 
-	public int[] DeckShpUnpack2(List<Card> d1) {
+	public int[] DeckShpUnpack(List<Card> d1) {
 		int[] temp = new int[d1.size()];
 		for (int i = 0; i < d1.size(); i++) {
 			temp[i] = d1.get(i).getCardShapePoint();
