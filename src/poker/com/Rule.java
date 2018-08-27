@@ -5,6 +5,27 @@ import java.util.List;
 
 public class Rule {
 
+	/**
+	 * c1이 c2보다 클 경우 true 출력
+	 * @param c1
+	 * @param c2
+	 * @return
+	 */
+	public boolean pointCard(Card c1, Card c2){
+		boolean isc = false;
+
+		if(c1.getCardShapePoint() > c2.getCardShapePoint()) {
+			isc =  true;
+		} else if (c1.getCardShapePoint() == c2.getCardShapePoint()) {
+			if (c1.getCardNumPoint() > c2.getCardNumPoint()) {
+				isc = true;
+			}
+		}
+
+		System.out.println(isc);
+		return isc;
+	}
+
 	public void Calculation(List<Card> d1) {
 		int[] numArr = DeckNumUnpack(d1);
 		int[] shpArr = DeckShpUnpack2(d1);
