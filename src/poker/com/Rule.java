@@ -1,7 +1,7 @@
 package poker.com;
 
 public class Rule {
-	
+	//fdsfds
 	// 카드비교 : Card c1의 모양과 숫자를 보고 카드의 점수를 return
 	public int pointCard(Card c1) {
 		int n = c1.getCardNumPoint();
