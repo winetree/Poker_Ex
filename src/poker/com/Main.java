@@ -15,11 +15,11 @@ public class Main {
 
 		List<Card> myDeck = new ArrayList<Card>();
 
-		myDeck.add(deck.getCard(DECK, 7));
-		myDeck.add(deck.getCard(DECK, 7));
-		myDeck.add(deck.getCard(DECK, 7));
-		myDeck.add(deck.getCard(DECK, 7));
-		myDeck.add(deck.getCard(DECK, 7));
+		myDeck.add(deck.getCard(DECK, 0));
+		myDeck.add(deck.getCard(DECK, 0));
+		myDeck.add(deck.getCard(DECK, 0));
+		myDeck.add(deck.getCard(DECK, 0));
+		myDeck.add(deck.getCard(DECK, 0));
 
 		System.out.println(myDeck);
 
@@ -29,7 +29,6 @@ public class Main {
 
 		//dd
 		rule.Calculation(myDeck);
-		rule.pointCard(myDeck.get(0), myDeck.get(1));
 
 	}
 }
