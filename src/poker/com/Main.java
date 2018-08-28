@@ -14,7 +14,7 @@ public class Main {
 		System.out.println(DECK);
 
 		List<Card> myDeck = new ArrayList<Card>();
-
+		
 		myDeck.add(deck.getCard(DECK, 0));
 		myDeck.add(deck.getCard(DECK, 0));
 		myDeck.add(deck.getCard(DECK, 0));

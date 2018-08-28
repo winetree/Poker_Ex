@@ -38,7 +38,7 @@ public class Card {
 	}
 	
 	/**
-	 * 외부 클래스(Rule)에서 카드 모양의 int값을 얻기위한 Method
+	 * 외부 클래스(Rule)에서 카드 모양의 int값을 얻기위한 Methodㅊ
 	 * @return int 카드 모양의 숫자값
 	 */
 	public int getCardShapePoint() {
