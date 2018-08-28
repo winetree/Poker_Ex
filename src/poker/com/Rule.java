@@ -3,20 +3,23 @@ package poker.com;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Five Card Poker Game Logic
+ * @author winetree
+ * @Version 1.3OBT
+ */
+
 public class Rule {
 
 	/**
-	 * Card c1이 c2보다 클 경우 true, 아닐 경우 false
-	 *
-	 * @param Card
-	 *            c1
-	 * @param Card
-	 *            c2
+	 * c1의 점수가 c2보다 높을 경우 true, 아닐 경우 false <br>
+	 * 연산은 카드 클래스의 cardShapePoint 를 우선 비교하고 이 값이 같은 경우에만 cardNumPoint 를 비교.
+	 * @param Card c1
+	 * @param Card c1
 	 * @return boolean
 	 */
 	public boolean compareCard(Card c1, Card c2) {
 		boolean isc = false;
-
 		if (c1.getCardShapePoint() > c2.getCardShapePoint()) {
 			isc = true;
 		} else if (c1.getCardShapePoint() == c2.getCardShapePoint()) {
@@ -24,62 +27,68 @@ public class Rule {
 				isc = true;
 			}
 		}
-
 		return isc;
 	}
 
-	public void Calculation(List<Card> d1) {
+	/**
+	 * <Strong>포커 게임 로직의 총괄 Method </Strong><br>
+	 * <p> Parameter로 들어온 List<Card>를 기본배열 변환하고 각 private method를 통해
+	 * 족보를 판단 </p>
+	 * <p> 가장 낮은 족보를 0으로 기준점을 잡고 한단계씩 족보가 높을 경우 1씩 더하여 정수값을 return </p>
+	 * @param List<Card> d1
+	 */
+	public int Calculation(List<Card> d1) {
 		int[] numArr = DeckNumUnpack(d1);
 		int[] shpArr = DeckShpUnpack(d1);
 		Arrays.sort(numArr);
 		Arrays.sort(shpArr);
 
-		for (int i = 0; i < numArr.length; i++) {
-			System.out.print("[ " + numArr[i] + " / ");
-			System.out.print(shpArr[i] + " ]");
-		}
-
-		if (flush(shpArr)) {
-			System.out.println("모양이 같아요");
-		}
-
 		if (royalStraightFlush(shpArr, numArr)) {
 			System.out.print("로얄 스트레이스 플러쉬");
+			return 12;
 		} else if (backStraightFlush(shpArr, numArr)) {
 			System.out.print("백 스트레이스 플러쉬");
+			return 11;
 		} else if (straightFlush(shpArr, numArr)) {
 			System.out.print("스트레이스 플러쉬");
+			return 10;
 		} else if (fourCard(numArr)) {
 			System.out.print("포카드");
+			return 9;
 		} else if (fullHouse(numArr)) {
 			System.out.print("풀 하우스");
+			return 8;
 		} else if (flush(shpArr)) {
 			System.out.print("플러쉬");
+			return 7;
 		} else if (mountain(shpArr)) {
 			System.out.print("마운틴");
-		}  else if (backStraight(numArr)) {
+			return 6;
+		} else if (backStraight(numArr)) {
 			System.out.print("백 스트레이트");
+			return 5;
 		} else if (straight(numArr)) {
 			System.out.print("스트레이트");
+			return 4;
 		} else if (triple(numArr)) {
 			System.out.print("트리플");
+			return 3;
 		} else if (twoPair(numArr)) {
 			System.out.print("투 페어");
+			return 2;
 		} else if (onePair(numArr)) {
 			System.out.print("원 페어");
-		} else {
-			System.out.println("베스트 카드");
-		}
+			return 1;
+		} 
+		return 0;
 	}
 
 	/**
-	 * 덱 안의 카드의 getCardNumPoint() method를 통한 카드의 정보를 int[] 배열에 담아 return
-	 *
-	 * @param List<Card>
-	 *            d1
+	 * Parameter List<Card> 배열에서 각 Card 클래스의 cardNumPoint 를 꺼내어 배열로 return
+	 * @param List<Card> d1
 	 * @return int[]
 	 */
-	public int[] DeckNumUnpack(List<Card> d1) {
+	private int[] DeckNumUnpack(List<Card> d1) {
 		int[] temp = new int[d1.size()];
 		for (int i = 0; i < d1.size(); i++) {
 			temp[i] = d1.get(i).getCardNumPoint();
@@ -88,13 +97,11 @@ public class Rule {
 	}
 
 	/**
-	 * 덱 안의 카드의 getCardShpPoint() method를 통한 카드의 정보를 int[] 배열에 담아 return
-	 *
-	 * @param List<Card>
-	 *            d1
+	 * Parameter List<Card> 배열에서 각 Card 클래스의 cardShapePoint 를 꺼내어 배열로 return
+	 * @param List<Card> d1
 	 * @return int[]
 	 */
-	public int[] DeckShpUnpack(List<Card> d1) {
+	private int[] DeckShpUnpack(List<Card> d1) {
 		int[] temp = new int[d1.size()];
 		for (int i = 0; i < d1.size(); i++) {
 			temp[i] = d1.get(i).getCardShapePoint();
@@ -103,15 +110,12 @@ public class Rule {
 	}
 
 	/**
-	 * 정수 배열로 해체되어 들어온 Deck이 로얄 스트레이트 플러쉬인지 여부를 판단
-	 *
-	 * @param int[]
-	 *            shpArr
-	 * @param int[]
-	 *            numArr
+	 * flush(shpArr) && mountain(numArr)가 == true 를 만족하면 true를, 아닐 경우 false를 return
+	 * @param int[] shpArr
+	 * @param int[] numArr
 	 * @return boolean
 	 */
-	public boolean royalStraightFlush(int[] shpArr, int[] numArr) {
+	private boolean royalStraightFlush(int[] shpArr, int[] numArr) {
 		if (flush(shpArr) && mountain(numArr)) {
 			return true;
 		}
@@ -119,15 +123,12 @@ public class Rule {
 	}
 
 	/**
-	 * 정수 배열로 해체되어 들어온 Deck이 백 스트레이트 플러쉬인지 여부를 판단
-	 *
-	 * @param int[]
-	 *            shpArr
-	 * @param int[]
-	 *            numArr
+	 * flush(shpArr) && backStraight(numArr) == true 를 만족하면 true를, 아닐 경우 false를 return
+	 * @param int[] shpArr
+	 * @param int[] numArr
 	 * @return boolean
 	 */
-	public boolean backStraightFlush(int[] shpArr, int[] numArr) {
+	private boolean backStraightFlush(int[] shpArr, int[] numArr) {
 		if (flush(shpArr) && backStraight(numArr)) {
 			return true;
 		}
@@ -135,17 +136,12 @@ public class Rule {
 	}
 
 	/**
-	 * 정수 배열로 해체되어 들어온 Deck이 스트레이트 플러쉬인지 여부를 판단
-	 *
-	 * @param int[]
-	 *            shpArr
-	 * @param int[]
-	 *            numArr
+	 * flush(shpArr) && straight(numArr) == true 를 만족하면 true를, 아닐 경우 false를 return
+	 * @param int[] shpArr
+	 * @param int[] numArr
 	 * @return boolean
 	 */
-	public boolean straightFlush(int[] shpArr, int[] numArr) {
-		int temp = numArr[2];
-
+	private boolean straightFlush(int[] shpArr, int[] numArr) {
 		if (flush(shpArr) && straight(numArr)) {
 			return true;
 		}
@@ -153,32 +149,28 @@ public class Rule {
 	}
 
 	/**
-	 * 정수 배열로 해체되어 들어온 Deck이 포카드인지 여부를 판단
-	 *
-	 * @param int[]
-	 *            shpArr
-	 * @param int[]
-	 *            numArr
+	 * numArr 배열에서 4개의 값이 서로 같을 경우 true를, 아닐 경우 false를 return
+	 * @param int[] numArr
 	 * @return boolean
 	 */
-	public boolean fourCard(int[] numArr) {
+	private boolean fourCard(int[] numArr) {
 		// int cnt = 0;
 		// int idx = 0;
 		// for (int i = 1; i < numArr.length; i++) {
-		// 	if (cnt >= 3) {
-		// 		return true;
-		// 	} else if (numArr[idx] == numArr[i]) {
-		// 		cnt++;
-		// 	} else {
-		// 		idx = i;
-		// 		cnt = 0;
-		// 	}
-		// 	if (cnt >= 3) {
-		// 		return true;
-		// 	}
+		// if (cnt >= 3) {
+		// return true;
+		// } else if (numArr[idx] == numArr[i]) {
+		// cnt++;
+		// } else {
+		// idx = i;
+		// cnt = 0;
 		// }
-		for(int i = 0; i <= numArr.length - 4; i ++) {
-			if(numArr[i] == numArr[i + 1] && numArr[i + 1] == numArr[i + 2] && numArr[i + 2] == numArr[i + 3]) {
+		// if (cnt >= 3) {
+		// return true;
+		// }
+		// }
+		for (int i = 0; i <= numArr.length - 4; i++) {
+			if (numArr[i] == numArr[i + 1] && numArr[i + 1] == numArr[i + 2] && numArr[i + 2] == numArr[i + 3]) {
 				return true;
 			}
 		}
@@ -186,13 +178,11 @@ public class Rule {
 	}
 
 	/**
-	 * 정수 배열로 해체되어 들어온 Deck이 풀하우스인지 여부를 판단
-	 *
-	 * @param int[]
-	 *            numArr
+	 * numArr 배열에서 3개의 값이 서로 같고 또 다른 2개의 값이 서로 같을 경우 true를, 아닐 경우 false를 return
+	 * @param int[] numArr
 	 * @return boolean
 	 */
-	public boolean fullHouse(int[] numArr) {
+	private boolean fullHouse(int[] numArr) {
 		if (numArr[0] == numArr[1] && numArr[1] == numArr[2] && numArr[3] == numArr[4]) {
 			return true;
 		} else if (numArr[0] == numArr[1] && numArr[2] == numArr[3] && numArr[3] == numArr[4]) {
@@ -202,14 +192,11 @@ public class Rule {
 	}
 
 	/**
-	 * deckNumUnpack 메소드로 int[] 로 변환된 shpArr 배열이 모두 같은 값을 가졌는지를 확인하여 맞으면 true, 아니면
-	 * false 반환 동시에 플러쉬 판단여부를 판단
-	 *
-	 * @param int[]
-	 *            shpArr
+	 * shpArr 배열의 값들이 모두 서로 같을 경우 true를, 아닐 경우 false를 return
+	 * @param int[] shpArr
 	 * @return boolean
 	 */
-	public boolean flush(int[] shpArr) {
+	private boolean flush(int[] shpArr) {
 		for (int i = 1; i < shpArr.length; i++) {
 			if (shpArr[i - 1] != shpArr[i]) {
 				return false;
@@ -217,8 +204,12 @@ public class Rule {
 		}
 		return true;
 	}
-
-	public boolean mountain(int[] numArr) {
+	/**
+	 * numArr 배열이 9, 10, 11, 12, 13 을 포함하고 있을 경우 true를, 아닐 경우 false를 return
+	 * @param numArr
+	 * @return boolean
+	 */
+	private boolean mountain(int[] numArr) {
 		if (numArr[0] == 9 && numArr[0] == 10 && numArr[0] == 11 && numArr[0] == 12 && numArr[0] == 13) {
 			return true;
 		}
@@ -226,13 +217,11 @@ public class Rule {
 	}
 
 	/**
-	 * backStraight 판단
-	 *
-	 * @param int[]
-	 *            numArr
+	 * numArr 배열이 1, 2, 3, 4, 13 을 포함하고 있을 경우 true를, 아닐 경우 false를 return
+	 * @param int[] numArr
 	 * @return boolean
 	 */
-	public boolean backStraight(int[] numArr) {
+	private boolean backStraight(int[] numArr) {
 		if (numArr[0] == 1 && numArr[1] == 2 && numArr[2] == 3 && numArr[3] == 4 && numArr[4] == 13) {
 			return true;
 		}
@@ -240,13 +229,12 @@ public class Rule {
 	}
 
 	/**
-	 * straight 판단
-	 *
-	 * @param int[]
-	 *            numArr
+	 * numArr 배열이 순차적으로 진행될 경우 true를, 아닐 경우 false를 반환<br>
+	 * 순차적 진행의 예시 : { 1, 2, 3, 4, 5 } or { 5, 6, 7, 8, 9 } or { 7, 8, 9, 10, 11 }
+	 * @param int[] numArr
 	 * @return boolean
 	 */
-	public boolean straight(int[] numArr) {
+	private boolean straight(int[] numArr) {
 		int temp = numArr[2];
 		if (numArr[0] == temp - 2 && numArr[1] == temp - 1 && numArr[3] == temp + 1 && numArr[4] == temp + 2) {
 			return true;
@@ -254,6 +242,11 @@ public class Rule {
 		return false;
 	}
 
+	/**
+	 * numArr 배열에서 3개의 값이 서로 같다면 true를, 아닐 경우 false를 return
+	 * @param numArr
+	 * @return boolean 
+	 */
 	private boolean triple(int[] numArr) {
 		if (numArr[0] == numArr[1] && numArr[1] == numArr[2]) {
 			return true;
@@ -265,6 +258,11 @@ public class Rule {
 		return false;
 	}
 
+	/**
+	 * numArr 배열에서 2개의 값이 서로 같고, 또 다른 2개의 값이 서로 같다면 true를, 아닐 경우 false를 return
+	 * @param numArr
+	 * @return boolean
+	 */
 	private boolean twoPair(int[] numArr) {
 		if (numArr[0] == numArr[1] && numArr[2] == numArr[3]) {
 			return true;
@@ -276,6 +274,11 @@ public class Rule {
 		return false;
 	}
 
+	/**
+	 * numArr 배열에서 2개의 값이 서로 같다면 true를, 아닐 경우 false를 return
+	 * @param numArr
+	 * @return boolean
+	 */
 	private boolean onePair(int[] numArr) {
 		for (int i = 1; i < numArr.length; i++) {
 			if (numArr[i - 1] == numArr[i]) {
@@ -283,12 +286,6 @@ public class Rule {
 			}
 		}
 		return false;
-	}
-
-	public int sameNumChk(int[] numArr) {
-		int result = 0;
-
-		return result;
 	}
 
 }

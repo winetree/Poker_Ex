@@ -21,6 +21,8 @@ public class Main {
 		myDeck.add(deck.getCard(DECK, 0));
 		myDeck.add(deck.getCard(DECK, 0));
 
+		myDeck.add(deck.getCard(DECK));
+
 		System.out.println(myDeck);
 
 		deck.deckPrint(myDeck);
