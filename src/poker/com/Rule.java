@@ -38,7 +38,7 @@ public class Rule {
 			System.out.print(shpArr[i] + " ]");
 		}
 
-		if (sameShpChk(shpArr)) {
+		if (flush(shpArr)) {
 			System.out.println("모양이 같아요");
 		}
 
@@ -52,10 +52,20 @@ public class Rule {
 			System.out.print("포카드");
 		} else if (fullHouse(shpArr, numArr)) {
 			System.out.print("풀 하우스");
-		} else if (sameShpChk(shpArr)) {
+		} else if (flush(shpArr)) {
 			System.out.print("플러쉬");
-		}  else {
-			System.out.println("아직 없는 덱 ");
+		} else if (backStraight(numArr)) {
+			System.out.print("백 스트레이트");
+		} else if (straight(numArr)) {
+			System.out.print("스트레이트");
+		} else if (triple(numArr)) {
+			System.out.print("트리플");
+		} else if (twoPair(numArr)) {
+			System.out.print("투 페어");
+		} else if (onePair(numArr)) {
+			System.out.print("원 페어");
+		} else {
+			System.out.println("베스트 카드");
 		}
 	}
 
@@ -88,21 +98,6 @@ public class Rule {
 	}
 
 	/**
-	 * deckNumUnpack 메소드로 int[] 로 변환된 shpArr 배열이 모두 같은 값을 가졌는지는 확인하여 맞으면 true, 아니면 false 반환
-	 * 동시에 플러쉬 판단여부를 판단
-	 * @param int[] shpArr
-	 * @return boolean
-	 */
-	public boolean sameShpChk(int[] shpArr) {
-		for (int i = 1; i < shpArr.length; i++) {
-			if (shpArr[i - 1] != shpArr[i]) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	/**
 	 * 정수 배열로 해체되어 들어온 Deck이 로얄 스트레이트 플러쉬인지 여부를 판단
 	 *
 	 * @param int[] shpArr
@@ -110,13 +105,12 @@ public class Rule {
 	 * @return boolean
 	 */
 	public boolean royalStraightFlush(int[] shpArr, int[] numArr) {
-		if (sameShpChk(shpArr) &&
+		if (flush(shpArr) &&
 						numArr[0] == 9 &&
 						numArr[1] == 10 &&
 						numArr[2] == 11 &&
 						numArr[3] == 12 &&
-						numArr[4] == 13
-		) {
+						numArr[4] == 13) {
 			return true;
 		}
 		return false;
@@ -130,12 +124,7 @@ public class Rule {
 	 * @return boolean
 	 */
 	public boolean backStraightFlush(int[] shpArr, int[] numArr) {
-		if (sameShpChk(shpArr) &&
-						numArr[0] == 1 &&
-						numArr[1] == 2 &&
-						numArr[2] == 3 &&
-						numArr[3] == 4 &&
-						numArr[4] == 13) {
+		if (flush(shpArr) && backStraight(numArr)) {
 			return true;
 		}
 		return false;
@@ -151,11 +140,7 @@ public class Rule {
 	public boolean straightFlush(int[] shpArr, int[] numArr) {
 		int temp = numArr[2];
 
-		if (sameShpChk(shpArr) &&
-						numArr[0] == temp - 2 &&
-						numArr[1] == temp - 1 &&
-						numArr[3] == temp + 1 &&
-						numArr[4] == temp + 2) {
+		if (flush(shpArr) && straight(numArr)) {
 			return true;
 		}
 		return false;
@@ -187,6 +172,7 @@ public class Rule {
 		}
 		return false;
 	}
+
 	/**
 	 * 정수 배열로 해체되어 들어온 Deck이 풀하우스인지 여부를 판단
 	 *
@@ -207,6 +193,102 @@ public class Rule {
 			return true;
 		}
 		return false;
+	}
+
+	/**
+	 * deckNumUnpack 메소드로 int[] 로 변환된 shpArr 배열이 모두 같은 값을 가졌는지는 확인하여 맞으면 true, 아니면 false 반환
+	 * 동시에 플러쉬 판단여부를 판단
+	 *
+	 * @param int[] shpArr
+	 * @return boolean
+	 */
+	public boolean flush(int[] shpArr) {
+		for (int i = 1; i < shpArr.length; i++) {
+			if (shpArr[i - 1] != shpArr[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * backStraight 판단
+	 *
+	 * @param int[] numArr
+	 * @return boolean
+	 */
+	public boolean backStraight(int[] numArr) {
+		if (numArr[0] == 1 &&
+						numArr[1] == 2 &&
+						numArr[2] == 3 &&
+						numArr[3] == 4 &&
+						numArr[4] == 13) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * straight 판단
+	 *
+	 * @param int[] numArr
+	 * @return boolean
+	 */
+	public boolean straight(int[] numArr) {
+		int temp = numArr[2];
+		if (numArr[0] == temp - 2 &&
+						numArr[1] == temp - 1 &&
+						numArr[3] == temp + 1 &&
+						numArr[4] == temp + 2) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean triple(int[] numArr) {
+		if (numArr[0] == numArr[1] &&
+						numArr[1] == numArr[2]
+		) {
+			return true;
+		} else if (numArr[1] == numArr[2] &&
+						numArr[2] == numArr[3]) {
+			return true;
+		} else if (numArr[2] == numArr[3] &&
+						numArr[3] == numArr[4]) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean twoPair(int[] numArr) {
+		if (numArr[0] == numArr[1] &&
+						numArr[2] == numArr[3]
+		) {
+			return true;
+		} else if (numArr[1] == numArr[2] &&
+						numArr[3] == numArr[4]) {
+			return true;
+		} else if (numArr[0] == numArr[1] &&
+						numArr[3] == numArr[4]) {
+			return true;
+		}
+		return false;
+	}
+
+	private boolean onePair(int[] numArr) {
+		for (int i = 1; i < numArr.length; i++) {
+			if (numArr[i - 1] == numArr[i]) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public int sameNumChk(int[] numArr) {
+		int result = 0;
+
+
+		return result;
 	}
 
 
