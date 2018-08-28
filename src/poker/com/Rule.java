@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Five Card Poker Game Logic
  * @author winetree
- * @Version 1.3OBT
+ * @Version 1.31
  */
 
 public class Rule {
@@ -44,42 +44,44 @@ public class Rule {
 		Arrays.sort(shpArr);
 
 		if (royalStraightFlush(shpArr, numArr)) {
-			System.out.print("로얄 스트레이스 플러쉬");
+			System.out.println("로얄 스트레이스 플러쉬");
 			return 12;
 		} else if (backStraightFlush(shpArr, numArr)) {
-			System.out.print("백 스트레이스 플러쉬");
+			System.out.println("백 스트레이스 플러쉬");
 			return 11;
 		} else if (straightFlush(shpArr, numArr)) {
-			System.out.print("스트레이스 플러쉬");
+			System.out.println("스트레이스 플러쉬");
 			return 10;
 		} else if (fourCard(numArr)) {
-			System.out.print("포카드");
+			System.out.println("포카드");
 			return 9;
 		} else if (fullHouse(numArr)) {
-			System.out.print("풀 하우스");
+			System.out.println("풀 하우스");
 			return 8;
 		} else if (flush(shpArr)) {
-			System.out.print("플러쉬");
+			System.out.println("플러쉬");
 			return 7;
-		} else if (mountain(shpArr)) {
-			System.out.print("마운틴");
+		} else if (mountain(numArr)) {
+			System.out.println("마운틴");
 			return 6;
 		} else if (backStraight(numArr)) {
-			System.out.print("백 스트레이트");
+			System.out.println("백 스트레이트");
 			return 5;
 		} else if (straight(numArr)) {
-			System.out.print("스트레이트");
+			System.out.println("스트레이트");
 			return 4;
 		} else if (triple(numArr)) {
-			System.out.print("트리플");
+			System.out.println("트리플");
 			return 3;
 		} else if (twoPair(numArr)) {
-			System.out.print("투 페어");
+			System.out.println("투 페어");
 			return 2;
 		} else if (onePair(numArr)) {
-			System.out.print("원 페어");
+			System.out.println("원 페어");
 			return 1;
-		} 
+		} else {
+			System.out.println("탑 카드");
+		}
 		return 0;
 	}
 
@@ -210,7 +212,7 @@ public class Rule {
 	 * @return boolean
 	 */
 	private boolean mountain(int[] numArr) {
-		if (numArr[0] == 9 && numArr[0] == 10 && numArr[0] == 11 && numArr[0] == 12 && numArr[0] == 13) {
+		if (numArr[0] == 9 && numArr[1] == 10 && numArr[2] == 11 && numArr[3] == 12 && numArr[4] == 13) {
 			return true;
 		}
 		return false;

@@ -1,5 +1,12 @@
 package poker.com;
 
+/**
+ * <Strong>Trump Card Class</Strong><br>
+ * 한 장의 카드가 되는 클래스로 카드의 모양과 숫자 정보를 String과 int로 담고 있음
+ * @author winetree
+ * @Version 1.0
+ */
+
 public class Card {
 	
 	/**
@@ -15,12 +22,11 @@ public class Card {
 	private int cardNumPoint;
 	
 	/**
-	 * Card 클래스의 생성자. 클래스를 호출하면서 parameter 값에 의해 카드의 정보가 모두 입력돼요
-	 * 
-	 * @param cardShape
-	 * @param cardShapePoint
-	 * @param cardNum
-	 * @param cardNumPoint
+	 * Card 클래스의 생성자. 클래스를 호출하면서 parameter 값에 의해 카드의 정보가 모두 입력되어 Deck 클래스의 List<Card> Deck 에 저장
+	 * @param String cardShape
+	 * @param int cardShapePoint
+	 * @param String cardNum
+	 * @param int cardNumPoint
 	 */
 	public Card(String cardShape, int cardShapePoint, String cardNum, int cardNumPoint) {
 		this.cardShape = cardShape;
@@ -31,43 +37,47 @@ public class Card {
 	
 	/**
 	 * 디버깅을 위한 카드의 4가지 정보를 모두 String으로 반환해주는 Method
-	 * @return String 카드정보
+	 * @return String
 	 */
 	public String getCardInfo() {
 		return "Shape : " + cardShape + " / Number : " + cardNum +  " / ShapePoint : " + cardShapePoint +  " / NumberPoint : " + cardNumPoint; 
 	}
 	
 	/**
-	 * 외부 클래스(Rule)에서 카드 모양의 int값을 얻기위한 Methodㅊ
-	 * @return int 카드 모양의 숫자값
+	 * member field 의 cardShapePoint 를 return 
+	 * @return int cardShapePoint
 	 */
 	public int getCardShapePoint() {
 		return this.cardShapePoint;
 	}
+	/**
+	 * member field 의 cardShape 를 return
+	 * @return String cardShape
+	 */
 	public String getCardShape() {
 		return this.cardShape;
 	}
 	
 	/**
-	 * 외부 클래스(Rule)에서 카드 숫자의 int값을 얻기위한 Method
-	 * @return int 카드 넘버의 정수값 
+	 * member field 의 cardNumPoint 를 return
+	 * @return int cardNumPoint
 	 */
 	public int getCardNumPoint() {
 		return this.cardNumPoint;
 	}
+	/**
+	 * member field 의 cardNum 을 return
+	 * @return String cardNum
+	 */
 	public String getCardNum() {
 		return this.cardNum;
 	}
 	
 	
 	/**
-	 * 유저에게 카드 정보를 출력해주기 위한 Method  List.get(i) 로 호출시 이 Method 를 통해 String으로 반환
-	 * @return String 카드모양 + 카드넘버
+	 * 유저에게 카드 정보를 출력해주기 위한 Method
+	 * @return String cardShape + cardNum
 	 */
-//	@Override
-//	public String toString() {
-//		return "Shape : " + cardShape + " / Number : " + cardNum;
-//	}
 	@Override
 	public String toString() {
 		return cardShape + cardNum;
