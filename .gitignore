@@ -26,9 +26,6 @@
 
 # bin folder
 /bin/
-# Mac files
-*.DS_Store
-.DS_Store
 
 # intellij file
 
