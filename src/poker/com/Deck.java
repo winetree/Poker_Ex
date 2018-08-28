@@ -24,7 +24,6 @@ public class Deck {
 			for (int j = 0; j < cardNum.length; j++) {
 				Card card = new Card(cardShape[i], cardShapePoint[i], cardNum[j], cardNumPoint[j]);
 				Deck.add(card);
-//				System.out.println(card);
 			}
 		}
 	}
@@ -48,7 +47,6 @@ public class Deck {
 		return card;
 	}
 	
-	// 
 	/**
 	 * 카드 출력 : List<Card> Deck 의 카드들을 순서대로 출력
 	 * @param List<Card> d1

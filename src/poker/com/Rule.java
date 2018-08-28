@@ -9,8 +9,6 @@ public class Rule {
 		System.out.println(c1 + " / " + c2);
 		boolean isc = false;
 		
-		
-		
 		System.out.println(isc);
 		return isc;
 	}
@@ -19,5 +17,4 @@ public class Rule {
 		int a=0;
 		return a;
 	}
-
 }
