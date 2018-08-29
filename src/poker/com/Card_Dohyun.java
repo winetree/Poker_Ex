@@ -27,4 +27,8 @@ public class Card_Dohyun {
 		return this.cardNumPoint;
 	}
 	
+	@Override
+	public String toString () {
+		return cardShape + cardNum;
+	}
 }

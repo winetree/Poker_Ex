@@ -16,4 +16,11 @@ public class Rule_Dohyun {
 		System.out.println(isc);
 		return isc;	
 }
+	public void shape() {
+		
+	}
+	public void num() {
+		
+	}
+	
 }
