@@ -3,7 +3,7 @@
 =======
 # Compiled class file
 *.class
-
+**/.DS_Store
 # Log file
 *.log
 
@@ -22,7 +22,17 @@
 *.tar.gz
 *.rar
 
-# intellij file
+# VS Code files
+
+# bin folder
+/bin/
+
+# ide file
+
+.classpath
+.dbeaver-data-sources.xml
+.project
+.DS_Store
 
 *.iml
 /.idea/
@@ -31,4 +41,3 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 >>>>>>> refs/remotes/origin/master
-.DS_Store
