@@ -47,6 +47,13 @@ public class Deck {
 		return card;
 	}
 	
+	public Card getCard(int n) {
+		Card card;
+		card = Deck.get(n); 
+		Deck.remove(n);
+		return card;
+	}
+	
 	/**
 	 * 카드 출력 : List<Card> Deck 의 카드들을 순서대로 출력
 	 * @param List<Card> d1

@@ -37,15 +37,29 @@ public class Rule_J {
 	 * @param d1
 	 * @return int
 	 */
-	public int pointDeck(List<Card> d1) {
+	public int calculateDeck(List<Card> d1) {
 		int a = 0;
 		// System.out.println(d1);
-		// pm7:45 아무 기능 안넣음 이건 나중에할거
-		deckShpUnpack(d1);
-		deckNumUnpack(d1);
-		return a;
-
+		int[] shpArr = deckShpUnpack(d1);
+		int[] numArr = deckNumUnpack(d1);
+		Arrays.sort(shpArr);
+		Arrays.sort(numArr);
 		
+		if (flush(shpArr)) {
+			System.out.println("플러쉬 입니다.");
+		}
+		else if (mountain(numArr)) {
+			System.out.println("마운틴 입니다.");
+		}
+		else if (royalStraightFlush(shpArr, numArr)) {
+			System.out.println("로얄 스트레이트 플러쉬 입니다.");
+		}else if(backStraight(numArr)) {
+			System.out.println("백스트레이트 입니다.");
+		}else if(backStraightFlush(shpArr, numArr)) {
+			System.out.println("백스트레이트 플러쉬 입니다.");
+		}
+		
+		return a;
 	}
 
 	/**
@@ -53,19 +67,14 @@ public class Rule_J {
 	 * @param List<Card> d1
 	 * @return shpArr
 	 */
-	private int[] deckShpUnpack(List<Card> d1) {
+	public int[] deckShpUnpack(List<Card> d1) {
 		int[] shpArr = new int[d1.size()];
-		
 		for (int i = 0; i < d1.size(); i++) {
 			shpArr[i] = d1.get(i).getCardShapePoint();
 		}
-		
-		for (int i = 0; i < d1.size(); i++) {
-			System.out.println(i+1+"번째 카드의 점수: "+shpArr[i]);
-		}
-		
 		return shpArr;
 	}
+	
 	
 	/**
 	 * Parameter List<Card> d1 을 해체하여 각 카드의 cardShapePoint를 
@@ -75,24 +84,105 @@ public class Rule_J {
 	 */
 	private int[] deckNumUnpack(List<Card> d1) {
 		int[] numArr = new int[d1.size()];
-		
 		for (int i = 0; i < d1.size(); i++) {
 			numArr[i] = d1.get(i).getCardNumPoint();
-		}
-		for (int i = 0; i < numArr.length; i++) {
-//			System.out.println(numArr[i]);
 		}
 		return numArr;
 	}
 	
-	//private로 하기
-	public boolean sameShpCheck(int[] shpArr) {
-		boolean d = false;
 	
-		
-		return d;
+	/**
+	 * 플러쉬 판단 : shpArr 배열의 값이 모두 같다면 true를, 아닐 경우 false를 return
+	 * @param sint[] shpArr)
+	 * @return true
+	 */
+	private boolean flush(int[] shpArr) {
+//
+//		if(shpArr.length < 5) {
+//			return false;
+//		}
+			for(int i = 1; i < shpArr.length; i++) {
+				if(shpArr[i - 1] != shpArr[i]) {
+					return false;
+				}
+			}
+		return true;
 	}
-
+	
+	/**
+	 * 마운틴 판단 : numArr 배열이 9, 10, 11, 12, 13 을 모두 가지고 있다면 true를 아닐 경우 false를 return
+	 * @param int[] numArr
+	 * @return true
+	 */
+	private boolean mountain(int[] numArr) {
+		for (int i = 0; i < numArr.length; i++) {
+			
+			if (numArr[i] != i+9) {
+				return false;
+			} 
+		}
+//		System.out.println("마운틴입니다");
+		return true;
+	}
+	
+	/**
+	 *로얄스트레이트플러쉬 판단 : flush(shpArr) && mountain(numArr)가 true라면 true를, 아닐 경우 false를 return
+	 * @param int[] shpArr
+	 * @param int[] numArr
+	 * @return true
+	 */
+	private boolean royalStraightFlush( int[] shpArr, int[] numArr) {
+		
+		if (flush(shpArr) && mountain(numArr)) {
+			return true;
+		}
+		return false;
+	}
+	
+	
+	/**
+	 * 백스트레이트 판단 : numArr 배열이 1, 2, 3, 4, 13을 모두 가지고 있다면 true를, 아닐 경우 false를 return
+	 * @param int[] numArr
+	 * @return true
+	 */
+	private boolean backStraight(int[] numArr) {
+		for (int i = 0; i < numArr.length; i++) {
+			if (numArr[i]==i+1 ) {
+				
+				if (numArr[4]==13) {
+					return true;
+				}
+				return false;
+			}
+		}
+		
+		return false;
+	}
+	
+	
+	/**
+	 * 백스트레이트플러쉬 판단 : flush(shpArr) && backStraight(numArr)가 true라면 true를, 아닐 경우 false를 return
+	 * @param int[] numArr
+	 * @param int[] shpArr
+	 * @return true;
+	 */
+	private boolean backStraightFlush(int[] numArr, int[] shpArr) {
+		if (flush(shpArr) && backStraight(numArr)) {
+			
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean straight(int[] numArr) {
+		
+		for (int i = 0; i < numArr.length; i++) {
+			if (numArr[i]==i+1) {
+				return true; // 수정해야함
+			}
+		}
+		return false;
+	}
 	
 	
 	
