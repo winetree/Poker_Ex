@@ -25,9 +25,9 @@ public class Main_J {
 //		rule.calculateDeck(myDeck);
 //		System.out.println(myDeck);
 		
-		int[] aa = {1,2,3,4,13};
+		int[] aa = {3,4,5,6,8};
 //		System.out.println(rule.mountain(aa));
 //		rule.backStraight(aa);
-		
+		rule.straight(aa);
 	}
 }

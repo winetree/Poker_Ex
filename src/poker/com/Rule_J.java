@@ -92,7 +92,8 @@ public class Rule_J {
 	
 	
 	/**
-	 * 플러쉬 판단 : shpArr 배열의 값이 모두 같다면 true를, 아닐 경우 false를 return
+	 * 플러쉬 판단
+	 *  shpArr 배열의 값이 모두 같다면 true를, 아닐 경우 false를 return
 	 * @param sint[] shpArr)
 	 * @return true
 	 */
@@ -110,7 +111,8 @@ public class Rule_J {
 	}
 	
 	/**
-	 * 마운틴 판단 : numArr 배열이 9, 10, 11, 12, 13 을 모두 가지고 있다면 true를 아닐 경우 false를 return
+	 * 마운틴 판단
+	 *  numArr 배열이 9, 10, 11, 12, 13 을 모두 가지고 있다면 true를 아닐 경우 false를 return
 	 * @param int[] numArr
 	 * @return true
 	 */
@@ -126,7 +128,8 @@ public class Rule_J {
 	}
 	
 	/**
-	 *로얄스트레이트플러쉬 판단 : flush(shpArr) && mountain(numArr)가 true라면 true를, 아닐 경우 false를 return
+	 *로얄스트레이트플러쉬 판단
+	 *flush(shpArr) && mountain(numArr)가 true라면 true를, 아닐 경우 false를 return
 	 * @param int[] shpArr
 	 * @param int[] numArr
 	 * @return true
@@ -141,7 +144,8 @@ public class Rule_J {
 	
 	
 	/**
-	 * 백스트레이트 판단 : numArr 배열이 1, 2, 3, 4, 13을 모두 가지고 있다면 true를, 아닐 경우 false를 return
+	 * 백스트레이트 판단
+	 *  numArr 배열이 1, 2, 3, 4, 13을 모두 가지고 있다면 true를, 아닐 경우 false를 return
 	 * @param int[] numArr
 	 * @return true
 	 */
@@ -161,7 +165,8 @@ public class Rule_J {
 	
 	
 	/**
-	 * 백스트레이트플러쉬 판단 : flush(shpArr) && backStraight(numArr)가 true라면 true를, 아닐 경우 false를 return
+	 * 백스트레이트플러쉬 판단
+	 *  flush(shpArr) && backStraight(numArr)가 true라면 true를, 아닐 경우 false를 return
 	 * @param int[] numArr
 	 * @param int[] shpArr
 	 * @return true;
@@ -174,11 +179,24 @@ public class Rule_J {
 		return false;
 	}
 	
+	/**
+	 * 스트레이트 판단
+	 * numArr 배열의 값이 연속되어 있으면 true를, 아닐 경우 false를 return
+		연속의 예 : [1, 2, 3, 4, 5] or [3, 4, 5, 6, 7] or [9, 10, 11, 12, 13]
+	 * @param numArr
+	 * @return
+	 */
 	public boolean straight(int[] numArr) {
 		
 		for (int i = 0; i < numArr.length; i++) {
-			if (numArr[i]==i+1) {
-				return true; // 수정해야함
+			if (numArr[i+1]-numArr[i]==1) {
+				
+				if (numArr[4]-numArr[3]==1) {
+					System.out.println("빙잉고");
+					return true;
+				}
+				
+				return true; 
 			}
 		}
 		return false;
