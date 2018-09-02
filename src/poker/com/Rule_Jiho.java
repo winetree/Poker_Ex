@@ -6,7 +6,7 @@ public class Rule_Jiho {
 	
 	public void Cal(List<Card> d1) {
 		
-		
+		// 주석 S
 		
 	}
 
