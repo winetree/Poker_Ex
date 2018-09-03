@@ -8,6 +8,7 @@ public class Rule_Jiho {
 		
 		// 주석 S
 		//한솔이의 주석 
+		//dkjd
 		
 	}
 
