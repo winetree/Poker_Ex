@@ -6,6 +6,12 @@ import java.util.Scanner;
 
 public class Dealer_Dohyun {
 	
+	public int input() {
+		Scanner scan = new Scanner(System.in);
+		int a = scan.nextInt();
+		return a;
+	}
+	
 	public void aaa() {
 	Deck_Dohyun deck = new Deck_Dohyun();
 	
@@ -25,11 +31,30 @@ public class Dealer_Dohyun {
 	}
 	
 	System.out.println("카드를 선택하세요");
-	Scanner scan = new Scanner(System.in);
-	int i = scan.nextInt();
+	int i = input();
 	
 	Card_Dohyun temp = myDeck.get(i - 1);
 	System.out.println(temp);
+	input();
+	com();
 	}
+	public void com() {
+		Deck_Dohyun deck = new Deck_Dohyun();
+		
+		deck.deckInit();
+		deck.deckShuffle();
+
+		List<Card_Dohyun> comDeck = new ArrayList<Card_Dohyun>();
+		
+		comDeck.add(deck.getCard());
+		comDeck.add(deck.getCard());
+		comDeck.add(deck.getCard());
+		comDeck.add(deck.getCard());
+		comDeck.add(deck.getCard());
+
+		for(int i = 0; i < comDeck.size(); i ++) {
+		}
+		}
+
 	
 	}

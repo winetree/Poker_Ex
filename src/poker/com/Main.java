@@ -59,6 +59,8 @@ public class Main {
 		int a = rule.pointDeck(myDeck);
 		int b = rule.pointDeck(comDeck);
 		
+		
+		
 		rule.pointCard(myDeck.get(0), comDeck.get(0));
 		
 	}

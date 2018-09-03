@@ -8,9 +8,10 @@ public class Main_J {
 		
 		Deck deck = new Deck();
 		
-		deck.deckInit();
-
 		Rule_J rule = new Rule_J();
+		deck.deckInit();
+//		deck.deckShuffle();
+		deck.getCard();
 		
 		List<Card> myDeck = new ArrayList<Card>();
 		
@@ -25,9 +26,18 @@ public class Main_J {
 //		rule.calculateDeck(myDeck);
 //		System.out.println(myDeck);
 		
-		int[] aa = {3,4,5,6,8};
-//		System.out.println(rule.mountain(aa));
-//		rule.backStraight(aa);
-		rule.straight(aa);
+		int[] aa = {5,6,6,6,6};
+		
+		List<Card> dd = new ArrayList<Card>();
+		dd.add(deck.getCard());
+		dd.add(deck.getCard());
+		dd.add(deck.getCard());
+		dd.add(deck.getCard());
+		dd.add(deck.getCard());
+		deck.deckPrint(dd);
+		
+//		boolean isc = rule.fourCard(aa);
+//		System.out.println(isc);
+		
 	}
 }
