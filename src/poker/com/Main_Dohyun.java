@@ -6,9 +6,11 @@ public class Main_Dohyun {
 
 	public static void main(String[] args) {
 
+		System.out.println("\t\t\tAVENGERS POKER GAME"); Help h = new Help();
+		h.hel(); 
 		Dealer_Dohyun PD = new Dealer_Dohyun();
+		System.out.println();
 		PD.aaa();
-//	 System.out.println("\t\t\tAVENGERS POKER GAME"); Help h = new Help();
-//	 h.hel(); 
+		
 }
 }
