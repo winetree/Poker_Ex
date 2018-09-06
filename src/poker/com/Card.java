@@ -59,7 +59,8 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		return "Shape : " + cardShape + " / Number : " + cardNum;
+		//return "Shape : " + cardShape + " / Number : " + cardNum;
+		return cardShape + cardNum;
 	}
 
 }

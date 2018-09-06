@@ -56,12 +56,12 @@ public class Main {
 		System.out.println(myDeck);
 		System.out.println(comDeck);
 		
-		int a = rule.pointDeck(myDeck);
-		int b = rule.pointDeck(comDeck);
+//		int a = rule.pointDeck(myDeck);
+//		int b = rule.pointDeck(comDeck);
 		
 		
 		
-		rule.pointCard(myDeck.get(0), comDeck.get(0));
+//		rule.pointCard(myDeck.get(0), comDeck.get(0));
 		
 	}
 }
