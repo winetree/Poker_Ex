@@ -23,8 +23,7 @@ public class Dealer_Dohyun {
 		getCard();
 		System.out.println("");
 		printDeck(myDeck);
-		int b = input();
-		pickCard(b);
+		pickCard();
 		
 			}
 		
@@ -64,7 +63,7 @@ public class Dealer_Dohyun {
 		myDeck.add(DECK.getCard());
 	}
 	
-	public Card_Dohyun pickCard(int n) {
+	public Card_Dohyun pickCard() {
 		//return myDeck.get(n - 1);
 		
 		List<Card_Dohyun> myDeck = new ArrayList<Card_Dohyun>();
