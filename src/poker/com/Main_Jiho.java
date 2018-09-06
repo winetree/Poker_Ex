@@ -9,33 +9,29 @@ public class Main_Jiho {
 		Deck deck = new Deck();
 		
 		deck.deckInit();
-		deck.deckShuffle();
+//		deck.deckShuffle();
 		
-//		deck.deckPrint(deck.Deck);
-		
-		System.out.println(deck.Deck);
+		deck.deckPrint(deck.Deck);
 		
 		List<Card> myDeck = new ArrayList<Card>();
 		
-
 		myDeck.add(deck.getCard());
 		myDeck.add(deck.getCard());
 		myDeck.add(deck.getCard());
 		myDeck.add(deck.getCard());
 		myDeck.add(deck.getCard());
 		
-		System.out.println(deck.Deck);
+		System.out.println();
+		System.out.println();
+		deck.deckPrint(myDeck);
 		
-		System.out.println(myDeck.get(0));
-		
-		int i = myDeck.get(0).getCardNumPoint();
-		System.out.println(i);
 		
 		Rule_Jiho rule = new Rule_Jiho();
 		
-		rule.Cal(myDeck);
+		boolean isc = rule.compareCard(myDeck.get(0), myDeck.get(1));
 		
 		
+		System.out.println(isc);
 		
 	}
 
