@@ -46,13 +46,7 @@ public class Deck {
 		Deck.remove(0);
 		return card;
 	}
-	
-	public Card getCard(int n) {
-		Card card;
-		card = Deck.get(n); 
-		Deck.remove(n);
-		return card;
-	}
+
 	
 	/**
 	 * 카드 출력 : List<Card> Deck 의 카드들을 순서대로 출력
@@ -62,7 +56,7 @@ public class Deck {
 		for (int i = 0; i < d1.size(); i++) {
 			 System.out.println(d1.get(i));
 		}
-//		System.out.print(Deck);
+		System.out.print(Deck);
 	}
 
 }

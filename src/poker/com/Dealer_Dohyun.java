@@ -44,8 +44,9 @@ public class Dealer_Dohyun {
 		return a;
 	}
 
-	public void setMoney() {
+	public int setMoney() {
 		while (true) {
+			myCash = 0;
 			System.out.println("\t\t\t   배팅금액을 설정하세요");
 			System.out.println("\t\t      최소배팅금액은 10000원 입니다");
 			this.myCash = input();
@@ -56,6 +57,7 @@ public class Dealer_Dohyun {
 				break;
 			}
 		}
+		return myCash;
 	}
 	
 	public void getCard() {
