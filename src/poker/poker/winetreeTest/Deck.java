@@ -1,4 +1,4 @@
-package poker.com;
+package poker.poker.winetreeTest;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -62,7 +62,6 @@ public class Deck {
 		for (int i = 0; i < d1.size(); i++) {
 			 System.out.println(d1.get(i));
 		}
-//		System.out.print(Deck);
 	}
 
 }
