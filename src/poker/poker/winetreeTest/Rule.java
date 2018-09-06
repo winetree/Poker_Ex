@@ -1,4 +1,4 @@
-package poker.com;
+package poker.poker.winetreeTest;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +10,7 @@ import java.util.List;
  */
 
 public class Rule {
+
     /**
      * c1의 점수가 c2보다 높을 경우 true, 아닐 경우 false <br>
      * 연산은 카드 클래스의 cardShapePoint 를 우선 비교하고 이 값이 같은 경우에만 cardNumPoint 를 비교.
@@ -256,14 +257,24 @@ public class Rule {
         } else if (numArr[2] == numArr[3] && numArr[3] == numArr[4]) {
             return true;
         }
+        
+        for(int i = 1; i < numArr.length - 1; i ++) {
+        	if(numArr[i - 1] == numArr[i] && numArr[i] == numArr[i + 1]) {
+        		return false;
+        	}
+        }
+        
+        
+        
         return false;
     }
 
     /**
-     * numArr 배열에서 2개의 값이 서로 같고, 또 다른 2개의 값이 서로 같다면 true를, 아닐 경우 false를 return
+     * numArr 배열에서 2개의 값이 서로 같고, 또 다른 2개hhhh의 값이 서로 같다면 true를, 아닐 경우 false를 return
      * @param numArr
      * @return boolean
      */
+    
     private boolean twoPair(int[] numArr) {
         if (numArr[0] == numArr[1] && numArr[2] == numArr[3]) {
             return true;

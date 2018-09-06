@@ -10,7 +10,9 @@ public class Main_Dohyun {
 		h.hel(); 
 		Dealer_Dohyun PD = new Dealer_Dohyun();
 		System.out.println();
-		PD.aaa();
+		PD.result();
+//		PD.aaa();
+//		PD.com();
 		
 }
 }

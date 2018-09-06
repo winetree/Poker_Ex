@@ -1,4 +1,4 @@
-package poker.com;
+package poker.poker.winetreeTest;
 
 public class Card {
 	
@@ -59,8 +59,7 @@ public class Card {
 	 */
 	@Override
 	public String toString() {
-		//return "Shape : " + cardShape + " / Number : " + cardNum;
-		return cardShape + cardNum;
+		return "Shape : " + cardShape + " / Number : " + cardNum;
 	}
 
 }

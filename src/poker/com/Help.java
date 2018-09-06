@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_COLOR_BURNPeer;
 
 public class Help {
-Player_Dohyun PD = new Player_Dohyun();
+Dealer_Dohyun PD = new Dealer_Dohyun();
 
 /**
  * 스캐너 메소드
@@ -37,7 +37,7 @@ Player_Dohyun PD = new Player_Dohyun();
 					help();
 					break;
 				} else if (result == 1) {
-					PD.first();
+					PD.result();
 					break;
 				} else {
 					System.out.println("\t\t\t   잘못된 입력값입니다");
@@ -81,7 +81,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			help();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -154,7 +154,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -170,7 +170,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -186,7 +186,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -202,7 +202,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -218,7 +218,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -234,7 +234,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -250,7 +250,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -266,7 +266,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -282,7 +282,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -298,7 +298,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -314,7 +314,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
@@ -330,7 +330,7 @@ Player_Dohyun PD = new Player_Dohyun();
 		if (n == 1) {
 			rule();
 		} else if (n == 2) {
-			PD.first();
+			PD.result();
 		} else {
 			System.out.println("범위 밖의 값입니다.");
 		}
