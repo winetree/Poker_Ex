@@ -1,0 +1,20 @@
+--첫번째 과제--
+--1번 문제--
+SELECT *
+FROM EMP
+WHERE EMPNO NOT IN(7369, 7698);
+--2번 문제--
+SELECT *
+FROM EMP
+WHERE SAL BETWEEN 3000 AND 5000;
+--3번 문제--
+SELECT* 
+FROM EMP
+WHERE TO_NUMBER(HIREDATE>19990224);
+
+--4번 문제--
+--5번 문제--
+
+--두번째 과제--
+
+
