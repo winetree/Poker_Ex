@@ -24,7 +24,6 @@ public class Dealer_Dohyun {
 		System.out.println("");
 		printDeck(myDeck);
 		pickCard();
-		
 			}
 		
 	
@@ -33,7 +32,6 @@ public class Dealer_Dohyun {
 		RULE = new Rule();
 		DECK.deckInit();
 		DECK.deckShuffle();
-		myDeck = new ArrayList<Card>();
 		myDeck = new ArrayList<Card>();
 	}
 	
