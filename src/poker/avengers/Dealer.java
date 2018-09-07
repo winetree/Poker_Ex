@@ -4,55 +4,139 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.management.timer.Timer;
+
 import poker.com.Card;
 import poker.com.Deck;
 import poker.com.Rule;
 
 public class Dealer {
-	Deck DECK;
-	Rule RULE;
+	
+	private Deck DECK;
+	private Rule RULE;
+	private Help HELP;
 
-	List<Card> myDeck;
-	int myCash;
+	private List<Card> myDeck;
+	private int myCash;
 
-	List<Card> comDeck;
-	int comCash;
-
-	public void result() {
-		System.out.println("\t\t\t  AVENGERS POKER입니다");
-		setMoney();
-		gameInit();
-		getCard(myDeck);
-		getCard(myDeck);
-		getCard(myDeck);
-		getCard(comDeck);
-		getCard(comDeck);
-		getCard(comDeck);
-		System.out.println("");
-		printDeck(myDeck);
-		Card temp = pickCard();
-		Card comCard = Test(comDeck);
-		Rule rule = new Rule();
-		boolean compare = rule.compareCard(temp, comCard);
-		if (compare) {
-			System.out.println("당신이 선공입니다");
-			System.out.println("배팅을 선택해주세요");
-		} else {
-			System.out.println("컴퓨터가 선공입니다");
-		}
-		 int select = setMoney();
-		
-		
-	}
+	private List<Card> comDeck;
+	private int comCash;
+	
+	private int sumCash;
 
 	public Dealer() {
+		// 게임 초기화 
+		DECK = null;
+		RULE = null;
+		myDeck = null;
+		comDeck = null;
+		
+		// 룰과 덱 클래스 생성
 		DECK = new Deck();
 		RULE = new Rule();
+		HELP = new Help();
+		
+		// 덱 초기화 및 셔플
 		DECK.deckInit();
 		DECK.deckShuffle();
+		
+		// 사용자 덱과 컴퓨터 덱 초기화
 		myDeck = new ArrayList<Card>();
 		comDeck = new ArrayList<Card>();
+		
+		// 사용자 돈과 컴퓨터 돈 초기화
+		this.myCash = 100000;
+		this.comCash = 100000;
 	}
+	
+	public void gameMake() {
+		System.out.println("\t\t\t  AVENGERS POKER입니다");
+		HELP.help();
+		
+		System.out.println("\t\t\t  Game을 시작하겠습니다. \n");
+		System.out.println("\t\t\t당신이 가진 돈은 " + myCash + " 원 입니다.\n");
+		setMoney();
+		
+		// 내 덱과 컴퓨터의 덱에 3장의 카드를 추가
+		for(int i = 0; i < 3; i++) {
+			getCard(myDeck);
+			getCard(comDeck);
+		}
+		
+		printDeck(myDeck);
+		
+		System.out.println("\t\t 공개할 카드를 한장 선택하세요.");
+		Card myCard = chooseCard(myDeck);
+		Card comCard = chooseComCard(comDeck);
+		
+		System.out.println("당신이 선택한 카드는 : " + myCard);
+		System.out.println("컴퓨터가 선택한 카드는 : " + comCard);
+		boolean cardWinner = RULE.compareCard(myCard, comCard);
+		
+		if(cardWinner) {
+			System.out.println("당신이 먼저 턴을 가져가요.");
+		} else {
+			System.out.println("컴퓨터가 먼저 턴을 가져가요.");
+		}
+		
+		System.out.println("사용자가 카드 한장을 받습니다.");
+		getCard(myDeck);
+		System.out.print("플레이어의 카드 : " + myDeck + " \n");
+		
+		System.out.println("컴퓨터가 카드 한장을 받습니다.");
+		getCard(comDeck);
+		
+		System.out.println("사용자가 카드 한장을 받습니다.");
+		getCard(myDeck);
+		
+		System.out.println("컴퓨터가 카드 한장을 받습니다.");
+		getCard(comDeck);
+		
+		System.out.print("플레이어의 카드 : " + myDeck + " ");
+		int myPoint = RULE.Calculation(myDeck);
+		System.out.print("컴퓨터의 카드 : " + comDeck + " ");
+		int comPoint = RULE.Calculation(comDeck);
+		
+		if(myPoint > comPoint) {
+			System.out.println("플레이어 승리");
+		} else {
+			System.out.println("컴퓨터 승리");
+		}
+	}
+	
+	public void die() {
+		
+	}
+	
+	public void call() {
+		myCash -= 10000;
+	}
+	
+	public Card chooseCard(List<Card> d1) {
+		int n = input();
+		return d1.get(n - 1);
+	}
+	
+	
+	public void printDeck(List<Card> d1) {
+		System.out.println("\t\t 당신이 가지고 있는 카드는 다음과 같습니다.");
+		for (int i = 0; i < d1.size(); i ++) {
+			System.out.println("\t" + (i + 1 )+ "번째 카드 : " + d1.get(i));
+		}
+	}
+	
+	
+	public void getCard(List<Card> d1) { 
+		d1.add(DECK.getCard());
+	}
+	
+	
+	
+	
+	public void result() {
+		
+	}
+
 
 	public int input() {
 		Scanner scan = new Scanner(System.in);
@@ -60,24 +144,20 @@ public class Dealer {
 		return a;
 	}
 
-	public int setMoney() {
+	public void setMoney() {
 		while (true) {
-			myCash = 0;
 			System.out.println("\t\t\t   배팅금액을 설정하세요");
 			System.out.println("\t\t      최소배팅금액은 10000원 입니다");
-			this.myCash = input();
-			if (myCash < 10000) {
+			int n = input();
+			sumCash += n;
+			myCash -= n;
+			if (n < 10000) {
 				System.out.println("\t\t  10000원 이상의 금액으로 배팅해주세요\n");
 			} else if (myCash >= 10000) {
-				System.out.println("\t\t  입력된 배팅 금액은 " + myCash + "원 입니다.");
+				System.out.println("\t\t  입력된 배팅 금액은 " + sumCash + "원 입니다.");
 				break;
 			}
 		}
-		return myCash;
-	}
-
-	public void getCard(List<Card> d1) {
-		d1.add(DECK.getCard());
 	}
 
 	public Card pickCard() {
@@ -95,19 +175,15 @@ public class Dealer {
 		return temp;
 	}
 
-	public void printDeck(List<Card> d1) {
-	}
-	
 	public void gameInit() {
 		
 		DECK.deckInit();
 		DECK.deckShuffle();
 	}
 
-	public Card Test(List<Card> d1) {
-		int num = (int) (Math.random() * 3);
+	public Card chooseComCard(List<Card> d1) {
+		int num = (int)(Math.random() * 3);
 		Card com = d1.get(num);
-		System.out.println("컴퓨터가 선택한 카드는 " + com + " 입니다");
 		return com;
 	}
 	

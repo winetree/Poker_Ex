@@ -9,7 +9,6 @@ package poker.avengers;
 	import poker.com.Dealer_Dohyun;
 
 	public class Help {
-	Dealer dealer = new Dealer();
 
 	/**
 	 * 스캐너 메소드
@@ -40,7 +39,6 @@ package poker.avengers;
 						help();
 						break;
 					} else if (result == 1) {
-						dealer.result();
 						break;
 					} else {
 						System.out.println("\t\t\t   잘못된 입력값입니다");
@@ -84,7 +82,6 @@ package poker.avengers;
 			if (n == 1) {
 				help();
 			} else if (n == 2) {
-				dealer.result();
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -141,7 +138,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.getClass();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -157,7 +154,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -173,7 +170,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -189,7 +186,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -205,7 +202,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -221,7 +218,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -237,7 +234,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -253,7 +250,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -269,7 +266,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -285,7 +282,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -301,7 +298,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -317,7 +314,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
@@ -333,7 +330,7 @@ package poker.avengers;
 			if (n == 1) {
 				rule();
 			} else if (n == 2) {
-				dealer.result();
+				
 			} else {
 				System.out.println("범위 밖의 값입니다.");
 			}
